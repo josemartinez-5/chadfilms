@@ -1,0 +1,62 @@
+<li class="dropdown pc-h-item header-user-profile">
+    <a
+        class="pc-head-link dropdown-toggle arrow-none me-0"
+        data-bs-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-haspopup="false"
+        data-bs-auto-close="outside"
+        aria-expanded="false"
+    >
+        <i data-feather="user"></i>
+    </a>
+    <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-0 overflow-hidden">
+        <div class="dropdown-header d-flex align-items-center justify-content-between bg-primary">
+            <div class="d-flex my-2">
+                <div class="flex-shrink-0">
+                    <?= Html::img('gigachad.png',"user-image",["class"=>"user-avtar wid-35"]) ?>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="text-white mb-1"><?= $nombre ?></h6>
+                    <span class="text-white text-opacity-75"><?= $email ?></span>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-body">
+            <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
+                <!-- <a href="#" class="dropdown-item">
+              <span>
+                <svg class="pc-icon text-muted me-2">
+                  <use xlink:href="#custom-setting-outline"></use>
+                </svg>
+                <span>Settings</span>
+              </span>
+                </a>
+                <a href="#" class="dropdown-item">
+              <span>
+                <svg class="pc-icon text-muted me-2">
+                  <use xlink:href="#custom-share-bold"></use>
+                </svg>
+                <span>Share</span>
+              </span>
+                </a>
+                <a href="#" class="dropdown-item">
+              <span>
+                <svg class="pc-icon text-muted me-2">
+                  <use xlink:href="#custom-lock-outline"></use>
+                </svg>
+                <span>Change Password</span>
+              </span>
+                </a> -->
+                <div class="d-grid my-2">
+                    <a href="/chadfilms/index/logout" class="btn btn-primary">
+                        <svg class="pc-icon me-2">
+                            <use xlink:href="#custom-logout-1-outline"></use>
+                        </svg>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

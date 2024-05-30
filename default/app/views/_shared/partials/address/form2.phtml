@@ -1,0 +1,39 @@
+<h4>Dirección</h4>
+
+<div class="row">
+    <div class="col-5">
+        <?= Form::label('Calle y número', 'address_address', ["class" => "form-label"]) ?>
+        <?= Form::text('address.address', $attrs = ["class" => "form-control"]) ?>
+    </div>
+    <div class="col-5">
+        <?= Form::label('Manzana, núm. interior, edificio, etc. (Opcional)',
+            'address_address2', ["class" => "form-label"]) ?>
+        <?= Form::text('address.address2', $attrs = ["class" => "form-control"]) ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <?= Form::label('Colonia/Localidad', 'address_community', ["class" => "form-label"]) ?>
+        <?= Form::text('address.community', $attrs = ["class" => "form-control"]) ?>
+    </div>
+    <div class="col-4">
+        <?= Form::label('Ciudad', 'address_city_id', ["class" => "form-label"]) ?>
+        <?= Form::dbSelect($itemId = 'address.city_id', $show = 'city', $data = ['City', 'find'],
+            $blank = 'Seleccione una ciudad',
+            $attrs = ["class" => "form-control js-example-basic-single"],
+            $value = $address->city_id)
+        ?>
+    </div>
+    <div class="col-4">
+        <?= Form::label('Estado', 'address_state', ["class" => "form-label"]) ?>
+        <?= Form::text('address.state', $attrs = ["class" => "form-control"]) ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <?= Form::label('Código postal', 'address_postal_code', ["class" => "form-label"]) ?>
+        <?= Form::text('address.postal_code',
+            $attrs = ["class" => "form-control", "inputmode" => "numeric", "pattern" => "\d*"])
+        ?>
+    </div>
+</div>

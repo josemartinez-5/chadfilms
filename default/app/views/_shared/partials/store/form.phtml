@@ -1,0 +1,26 @@
+<?= Form::open(); ?>
+    <div class="row">
+        <div class="col-5">
+            <?= Form::label('Nombre','store_nombre',["class"=>"form-label"]) ?>
+            <?= Form::text('store.nombre', $attrs=["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-5">
+            <?= Form::label('Código postal','store_cp',["class"=>"form-label"]) ?>
+            <?= Form::text('store.cp',
+                $attrs=["class"=>"form-control", "inputmode"=>"numeric", "pattern"=>"\d*"]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <?= Form::label('Manager ID','store_manager_staff_id',["class"=>"form-label"]) ?>
+            <?= Form::text('store.manager_staff_id',
+                $attrs=["class"=>"form-control", "inputmode"=>"numeric", "pattern"=>"\d*"]) ?>
+        </div>
+    </div>
+
+    <br>
+    <?php View::partial('address/form2',null,['address'=>$address]) ?>
+
+<?= Form::submit('Guardar', $attrs=["class"=>"mt-5 btn btn-primary"]) ?>
+
+<?= Form::close() ?>

@@ -1,0 +1,37 @@
+<div id="carouselFilms" class="carousel slide mb-5" data-bs-theme="dark">
+    <div class="carousel-indicators">
+        <?php for ($i = 0; $i < count($films); $i++): ?>
+            <button type="button" data-bs-target="#carouselFilms" data-bs-slide-to="<?= $i ?>"
+                    aria-label="<?= $films[$i]->title ?>"></button>
+        <?php endfor; ?>
+    </div>
+    <div class="carousel-inner">
+        <?php foreach ($films as $f): ?>
+            <div class="carousel-item ">
+                <a href="/chadfilms/film/show/<?= $f->id ?>">
+                    <?= Html::img("upload/film-covers/{$f->image}","Portada de {$f->title}",
+                        ["class" => "d-block mx-auto w-auto", "height" => "300px"]) ?>
+                </a>
+                <div class="carousel-caption d-none d-md-block position-static"
+                     style="margin: 0 15% 0.5rem 15%">
+                    <h5>
+                       <a class="a-sin-color" href="/chadfilms/film/show/<?= $f->id ?>">
+                           <?= $f->title ?>
+                       </a>
+                    </h5>
+                    <p><?= $f->description ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselFilms" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselFilms" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<script src="/chadfilms/javascript/index/carousel.js" defer></script>

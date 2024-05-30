@@ -1,0 +1,22 @@
+<?php header('HTTP/1.1 401 Unauthorized') ?>
+
+<?php View::content() ?>
+
+<?= Form::open(); ?>
+
+    <div class="row">
+        <div class="col-5">
+            <?= Form::label('Email','login_email',["class"=>"form-label"]) ?>
+            <?= Form::email('login.email',
+                $attrs=["class"=>"form-control","placeholder"=>"Email"]) ?>
+        </div>
+        <div class="col-5">
+            <?= Form::label('Password','login_password',["class"=>"form-label"]) ?>
+            <?= Form::password('login.password',
+                $attrs=["class"=>"form-control","placeholder"=>"Password"]) ?>
+        </div>
+    </div>
+
+<?= Form::submit('Entrar', $attrs=["class"=>"mt-5 btn btn-primary"]) ?>
+
+<?= Form::close() ?>

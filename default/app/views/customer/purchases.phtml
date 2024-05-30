@@ -1,0 +1,11 @@
+<?php View::content();
+
+if (count($purchases) !== 0):
+    foreach ($purchases as $p) {
+        View::partial('customer/purchase', null, ['purchase' => $p]);
+    }
+else: ?>
+    <div class="empty-cart">
+        <span>You haven't bought anything.</span>
+    </div>
+<?php endif; ?>

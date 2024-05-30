@@ -1,0 +1,15 @@
+<div class="purchase-list-item">
+    <div class="purchase-list-item-left">
+        <div class="purchase-list-item-image">
+            <?= Html::img("upload/film-covers/{$film->image}","Portada de {$film->title}") ?>
+        </div>
+        <div class="purchase-list-item-data">
+            <a href="/chadfilms/film/show/<?= $film->id ?>"><h4><?= $film->title ?></h4></a>
+            <span><?= $film->getShortDescription() ?></span>
+            <span class="purchase-list-item-price">Price: $<?= $film->cost ?></span>
+        </div>
+    </div>
+    <div class="purchase-list-item-right">
+        <a href="/chadfilms/film/play/<?= $film->id ?>" class="btn btn-danger">Play</a>
+    </div>
+</div>

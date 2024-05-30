@@ -1,0 +1,17 @@
+<div class="cart-bucket" data-film="<?= $film->id ?>">
+    <div class="cart-bucket-content">
+        <div class="grid-item-image">
+            <?= Html::img("upload/film-covers/{$film->image}","Portada de {$film->title}") ?>
+        </div>
+        <div class="grid-item-title">
+            <a href="/chadfilms/film/show/<?= $film->id ?>"><h3><?= $film->title ?></h3></a>
+            <span><b><?= $film->getLanguage()->name ?></b></span>
+        </div>
+        <div class="grid-item-price">
+            <span>MXN $<?= $film->cost ?></span>
+        </div>
+    </div>
+    <div class="cart-bucket-footer">
+        <button type="button" class="btn btn-primary btn-remove">Remove</button>
+    </div>
+</div>

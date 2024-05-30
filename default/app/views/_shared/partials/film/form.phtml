@@ -1,0 +1,69 @@
+<?= Form::openMultipart(); ?>
+
+    <div class="row">
+        <div class="col-6">
+            <?= Form::label('Título','film_title',["class"=>"form-label"]) ?>
+            <?= Form::text('film.title', $attrs=["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-2">
+            <?= Form::label('Release year','film_release_year',["class"=>"form-label"]) ?>
+            <?= Form::text('film.release_year',$attrs=["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-2">
+            <?= Form::label('Lenguaje','film_language_id',["class"=>"form-label"]) ?>
+            <?= Form::dbSelect($itemId = 'film.language_id', $show = 'name',
+                $data = ['Language','find'], $blank = 'Seleccione un lenguaje',
+                $attrs = ["class"=>"form-control js-example-basic-single"],
+                $value = $film->language_id)
+            ?>
+        </div>
+        <div class="col-2">
+            <?= Form::label('Lenguaje original','film_original_language_id',
+                ["class"=>"form-label"]) ?>
+            <?= Form::dbSelect($itemId = 'film.original_language_id', $show = 'name',
+                $data = ['Language','find'], $blank = 'Seleccione un lenguaje',
+                $attrs = ["class"=>"form-control js-example-basic-single"],
+                $value = $film->original_language_id)
+            ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <?= Form::label('Descripción','film_description',["class"=>"form-label"]) ?>
+            <?= Form::textarea('film.description', $attrs = ["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-3">
+            <?= Form::label('Duración','film_length',["class"=>"form-label"]) ?>
+            <?= Form::number('film.length', $attrs = ["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-3">
+            <?= Form::label('Rating','film_rating',["class"=>"form-label"]) ?>
+            <?= Form::text('film.rating', $attrs = ["class"=>"form-control"]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <?= Form::label('Portada de película','pic',["class"=>"form-label"]) ?>
+            <?= Form::file('pic') ?>
+        </div>
+    </div>
+    <?php if($film->image){ ?>
+    <div class="row mt-4">
+        <div class="col-4">
+            <?= html::img("upload/film-covers/{$film->image}", $alt = 'imagen', $attrs = ["width" => "300px"]) ?>
+        </div>
+    </div>
+    <?php } ?>
+
+<?= Form::submit('Guardar', $attrs=["class"=>"mt-5 btn btn-primary"]) ?>
+
+<?= Form::close() ?>
+
+<script type="text/javascript">
+    //bkLib.onDomLoaded(nicEditors.allTextAreas);
+
+    bkLib.onDomLoaded(function() {
+        //new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough','subscript','superscript','html']}).panelInstance('film_description');
+        new nicEditor({buttonList : ['bold','italic','underline']}).panelInstance('film_description');
+    });
+</script>

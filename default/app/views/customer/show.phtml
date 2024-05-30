@@ -1,0 +1,13 @@
+<ul>
+    <li>Nombre(s): <?= $customer->first_name ?></li>
+    <li>Apellido(s): <?= $customer->last_name ?></li>
+    <li>Tienda: <?= $customer->getStore()->nombre ?></li>
+    <li>Email: <?= $customer->email ?></li>
+    <li>¿Activo?: <?= ($customer->active == 1) ? "Sí" : "No" ?></li>
+</ul>
+
+<?php if ($customer->address_id)
+    View::partial('address/show', null, ["address" => $customer->getAddress()])
+?>
+
+<a href="/chadfilms/customer" class="btn btn-primary">Todos los clientes</a>

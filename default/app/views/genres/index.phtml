@@ -1,0 +1,11 @@
+<h3>ALL GENRES</h3>
+
+<?php foreach ($categories as $i => $c):
+    View::partial('index/cards',null,
+        ['titulo'=>$c->name,'films' => $randomFilmsByCategory[$i]]); ?>
+    <div class="mt-1 mb-5">
+        <a href="/chadfilms/genres/show/<?= $c->id ?>" class="btn btn-primary">
+            Más de <?= $c->name ?>
+        </a>
+    </div>
+<?php endforeach; ?>

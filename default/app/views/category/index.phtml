@@ -1,0 +1,24 @@
+<table class="table table-sm table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($categories as $c): ?>
+        <tr>
+            <td>
+                <a href="/chadfilms/category/show/<?= $c->id ?>">Ver</a>
+            </td>
+            <td><?= $c->name ?></td>
+            <td>
+                <a href="/chadfilms/category/edit/<?= $c->id ?>">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<a href="/chadfilms/category/create" class="btn btn-primary">Nueva categoría</a>

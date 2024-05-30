@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Dirección</h5>
+        <ul class="list">
+            <li><strong>Calle y número: </strong><?= $address->address .
+                ($address->address2 == "" ?: ", " . $address->address2) ?></li>
+            <li><strong>Colonia/Comunidad: </strong><?= $address->community ?></li>
+            <li><strong>Ciudad: </strong><?= $address->getCity()->city ?></li>
+            <li><strong>Estado: </strong><?= $address->state ?></li>
+            <li><strong>Código postal: </strong><?= $address->postal_code ?></li>
+        </ul>
+    </div>
+</div>

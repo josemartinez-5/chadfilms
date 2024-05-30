@@ -1,0 +1,13 @@
+<ul>
+    <li>Nombre(s): <?= $staff->first_name ?></li>
+    <li>Apellido(s): <?= $staff->last_name ?></li>
+    <li>Tienda: <?= $staff->getStore()->nombre ?></li>
+    <li>Email: <?= $staff->email ?></li>
+    <li>¿Activo? <?= $staff->active == 1 ? "Sí" : "No" ?></li>
+    <li>Nombre de usuario: <?= $staff->username ?></li>
+</ul>
+
+<?php View::partial('address/show', null, ["address" => $staff->getAddress()]) ?>
+
+<br>
+<a href="/chadfilms/staff" class="btn btn-primary">Todo el staff</a>

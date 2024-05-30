@@ -1,0 +1,24 @@
+<table class="table table-sm table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>País</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($cities as $c): ?>
+        <tr>
+            <td>
+                <a href="/chadfilms/city/show/<?= $c->id ?>">Ver</a>
+            </td>
+            <td><?= $c->city ?></td>
+            <td><?= $c->getCountry()->country ?></td>
+            <td>
+                <a href="/chadfilms/city/edit/<?= $c->id ?>">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

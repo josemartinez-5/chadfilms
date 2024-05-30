@@ -1,0 +1,39 @@
+<?php View::content(); ?>
+
+<div class="d-flex">
+    <?php if (count($films) !== 0): ?>
+        <div class="left-column">
+            <?php foreach ($films as $f):
+                View::partial('customer/cart_item',null,['film'=>$f]);
+            endforeach; ?>
+        </div>
+        <div class="right-column">
+            <div class="sticky-wrapper">
+                <div class="cart-summary-line-item">
+                    <div>
+                        <span id="items-count">Items (<?= count($films) ?>)</span>
+                    </div>
+                    <div>
+                        <span id="items-subtotal">MXN $<?= $cart->total ?></span>
+                    </div>
+                </div>
+                <div class="line-x"></div>
+                <div class="cart-summary-line-item total-row">
+                    <div>
+                        <span>Total</span>
+                    </div>
+                    <div>
+                        <span id="total">MXN $<?= $cart->total ?></span>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary btn-pay">Pay</button>
+                </div>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="empty-cart">
+            <span>You don't have any items in your cart.</span>
+        </div>
+    <?php endif; ?>
+</div>

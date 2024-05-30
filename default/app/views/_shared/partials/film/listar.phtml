@@ -1,0 +1,30 @@
+<table class="table table-sm table-hover table-striped" id="data-table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Release Year</th>
+        <th>Rental Duration</th>
+        <th>Rental Rate</th>
+        <th>Language</th>
+        <th>Original language</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tobdy>
+        <?php foreach ($films as $f): ?>
+            <tr>
+                <td><a href="/chadfilms/film/show/<?= $f->id ?>">Ver</a></td>
+                <td><?= $f->title ?></td>
+                <td><?= $f->description ?></td>
+                <td><?= $f->release_year ?></td>
+                <td><?= $f->rental_duration ?></td>
+                <td><?= $f->rental_rate ?></td>
+                <td><?= $f->getLanguage()->name ?></td>
+                <td><?= $f->getOriginal_language()->name ?></td>
+                <td><a href="/chadfilms/film/edit/<?= $f->id ?>">Editar</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </tobdy>
+</table>

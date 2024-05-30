@@ -1,0 +1,21 @@
+<div>
+    <h4 class="linea-azul"><?= $titulo ?></h4>
+    <div class="card-list">
+        <?php $i = 0;
+        foreach ($films as $f): ?>
+            <div class="card card-film">
+                <a href="/chadfilms/film/show/<?= $f->id ?>">
+                    <?= Html::img("upload/film-covers/{$f->image}",
+                        "Portada de {$f->title}", ["class" => "card-img-top"]) ?>
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $f->title ?></h5>
+                    <p class="card-text"><?= $f->release_year ?><i class="dot"></i>
+                        <?= $f->length ?> min</p>
+                </div>
+            </div>
+            <?php $i += 1;
+            if ($i >= 5) break;
+        endforeach; ?>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+    <div class="me-auto pc-mob-drp">
+        <ul class="list-unstyled">
+            <!-- ======= Menu collapse Icon ===== -->
+            <li class="pc-h-item pc-sidebar-collapse">
+                <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+                    <i data-feather="menu"></i>
+                </a>
+            </li>
+            <li class="pc-h-item pc-sidebar-popup">
+                <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+                    <i data-feather="menu"></i>
+                </a>
+            </li>
+            <?php View::partial("datta_able/header_search"); ?>
+        </ul>
+    </div>
+    <!-- [Mobile Media Block end] -->
+    <div class="ms-auto">
+        <ul class="list-unstyled">
+            <?php
+            if (!(str_starts_with($title,'Checkout'))) {
+                View::partial("datta_able/header_notifications",null,
+                ['numberItemsOnCart'=>$numberItemsOnCart]);
+            }
+            View::partial("datta_able/header_profile",null,
+                ['nombre'=>$nombre,'email'=>$email]);
+            ?>
+        </ul>
+    </div>
+</div>

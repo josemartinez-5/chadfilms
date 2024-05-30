@@ -1,0 +1,7 @@
+<?php View::content() ?>
+
+<h3 class="linea-azul"><?= $category->name ?></h3>
+
+<?php View::partial('index/carousel',null,['films' => $films]); ?>
+
+<a href="/chadfilms/genres" class="btn btn-dark">Todos los géneros</a>

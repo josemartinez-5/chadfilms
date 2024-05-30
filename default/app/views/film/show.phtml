@@ -1,0 +1,48 @@
+<?php View::content() ?>
+
+<div class="d-flex mb-4">
+    <div class="poster">
+        <?= Html::img("upload/film-covers/{$film->image}",
+            "Portada de {$film->title}", ["width" => "200px"]) ?>
+    </div>
+    <div class="m-4 film-text">
+        <h3 class="linea-azul"><?= $film->title ?></h3>
+        <p class="little-info"><?= $film->length ?> min</p>
+        <p><?= $film->description ?></p>
+        <div class="d-flex flex-column">
+            <div class="mb-1">
+                <span class="first-column"><strong>Genre(s):</strong></span>
+                <span class="second-column">
+                    <?php foreach ($film->getFilmCategories() as $i => $fc):
+                        if ($i != 0): ?>
+                            <i class="dot"></i>
+                        <?php endif; ?>
+                        <a href="/chadfilms/category/show/<?= $fc->getCategory()->id ?>">
+                            <?= $fc->getCategory()->name ?>
+                        </a>
+                    <?php endforeach; ?>
+                </span>
+            </div>
+            <div class="mb-1">
+                <span class="first-column"><strong>Year:</strong></span>
+                <span class="second-column"><?= $film->release_year ?></span>
+            </div>
+            <div class="mb-1">
+                <span class="first-column"><strong>Price:</strong></span>
+                <span class="second-column">$<?= $film->cost ?></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if ($purchased): ?>
+    <a href="/chadfilms/film/play/<?= $film->id ?>" class="btn btn-danger">Play</a>
+    <button type="button" disabled class="btn btn-dark">Already purchased</button>
+<?php elseif ($inCart): ?>
+    <button type="button" disabled class="btn btn-dark">Already in cart</button>
+<?php else: ?>
+    <button form="pay" class="btn btn-dark">Add to cart</button>
+    <?= Form::open('','post',['id'=>'pay']) ?>
+    <?= Form::hidden('pay.something') ?>
+    <?= Form::close() ?>
+<?php endif; ?>

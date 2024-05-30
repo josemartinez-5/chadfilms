@@ -1,0 +1,43 @@
+<?= Form::open(); ?>
+    <div class="row">
+        <div class="col-5">
+            <?= Form::label('Nombre(s)','staff_first_name',["class"=>"form-label"]) ?>
+            <?= Form::text('staff.first_name', $attrs=["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-5">
+            <?= Form::label('Apellido(s)','staff_last_name',["class"=>"form-label"]) ?>
+            <?= Form::text('staff.last_name', $attrs=["class"=>"form-control"]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <?= Form::label('Tienda','staff_store_id',["class"=>"form-label"]) ?>
+            <?= Form::dbSelect($itemId = 'staff.store_id', $show = 'nombre',
+                $data = ['Store','find'], $blank = 'Seleccione una tienda',
+                $attrs = ["class"=>"form-control js-example-basic-single"],
+                $value = $staff->store_id)
+            ?>
+        </div>
+        <div class="col-5">
+            <?= Form::label('Email','staff_email',["class"=>"form-label"]) ?>
+            <?= Form::email('staff.email', $attrs=["class"=>"form-control"]) ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <?= Form::label('Nombre de usuario','staff_username',["class"=>"form-label"]) ?>
+            <?= Form::text('staff.username', $attrs=["class"=>"form-control"]) ?>
+        </div>
+        <div class="col-3">
+            <?= Form::label('Contraseña','staff_password',["class"=>"form-label"]) ?>
+            <input id="staff_password" name="staff[password]" type="password"
+                   class="form-control" />
+        </div>
+    </div>
+
+    <br>
+    <?php View::partial('address/form2',null,['address'=>$address]) ?>
+
+<?= Form::submit('Guardar', $attrs=["class"=>"mt-5 btn btn-primary"]) ?>
+
+<?= Form::close() ?>

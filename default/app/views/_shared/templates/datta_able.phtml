@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- [Head] start -->
+
+<head>
+    <title><?= $title ?></title>
+    <!-- [Meta] -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Datta able is trending dashboard template made using Bootstrap 5 design framework. Datta able is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
+    <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
+    <meta name="author" content="Codedthemes">
+
+    <!-- [Favicon] icon -->
+    <link rel="icon" href="/chadfilms/img/chad.png" type="image/png"> <!-- [Font] Family -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"> -->
+    <!-- [Tabler Icons] https://tablericons.com -->
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/fonts/tabler-icons.min.css" >
+    <!-- [Feather Icons] https://feathericons.com -->
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/fonts/feather.css" >
+    <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/fonts/fontawesome.css" >
+    <!-- [Material Icons] https://fonts.google.com/icons -->
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/fonts/material.css" >
+    <!-- [Template CSS Files] -->
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/css/plugins/bootstrap.min.css" >
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/css/style.css" id="main-style-link" >
+    <link rel="stylesheet" href="/chadfilms/libs/datta-able/dist/assets/css/style-preset.css" >
+
+    <!-- To make select elements more elegant -->
+    <link href="/chadfilms/libs/select2/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Para hacer las tablas más modernas -->
+    <link rel="stylesheet" href="/chadfilms/css/datatables.min.css" >
+
+    <?php Tag::css('tweaks'); ?>
+    <?= Html::includeCss() ?>
+
+    <!-- NicEdit -->
+    <script src="/chadfilms/javascript/nicEdit/nicEdit.js" type="text/javascript"></script>
+
+    <script src="/chadfilms/libs/datta-able/dist/assets/js/plugins/bootstrap.min.js" defer></script>
+
+    <?php View::partial('matomo'); ?>
+
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+<!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+    <div class="loader-track">
+        <div class="loader-fill"></div>
+    </div>
+</div>
+<!-- [ Pre-loader ] End -->
+<!-- [ Sidebar Menu ] start -->
+<?php if (Auth::is_valid()) {
+    View::partial("datta_able/sidebar");
+}?>
+<!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+    <?php if (Auth::is_valid()){
+        View::partial("datta_able/header",null,
+            ['nombre'=>$user['first_name'].' '.$user['last_name'],
+                'email'=>$user['email'],
+                'numberItemsOnCart'=>$numberItemsOnCart,
+                'title'=>$title]
+        );
+    } ?>
+</header>
+<!-- [ Header ] end -->
+
+
+
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pc-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="mb-0"><?= $title ?></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ sample-page ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><?= $subtitle ?></h5>
+                    </div>
+                    <div class="card-body">
+                        <?php View::content() ?>
+                    </div>
+                </div>
+            </div>
+            <!-- [ sample-page ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+<?php View::partial("datta_able/footer"); ?>
+
+<!-- Required Js -->
+
+<script src="/chadfilms/libs/datta-able/dist/assets/js/plugins/popper.min.js"></script>
+<script src="/chadfilms/libs/datta-able/dist/assets/js/plugins/simplebar.min.js"></script>
+<script src="/chadfilms/libs/datta-able/dist/assets/js/fonts/custom-font.js"></script>
+<script src="/chadfilms/libs/datta-able/dist/assets/js/pcoded.js"></script>
+<script src="/chadfilms/libs/datta-able/dist/assets/js/plugins/feather.min.js"></script>
+<script src="/chadfilms/javascript/jquery/jquery-3.7.1.js"></script>
+<script src="/chadfilms/libs/select2/dist/js/select2.min.js"></script>
+
+<script src="/chadfilms/javascript/datatables.min.js"></script>
+<script>
+    let table = new DataTable('#data-table');
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+
+<?php
+if (str_starts_with($title,'Checkout')) {
+    echo Tag::js('checkout');
+}?>
+
+<script>layout_change('light');</script>
+
+<script>change_box_container('false');</script>
+
+<script>layout_caption_change('true');</script>
+
+<script>layout_rtl_change('false');</script>
+
+<script>preset_change("preset-1");</script>
+
+<script>layout_theme_sidebar_change('false');</script>
+
+<!-- <script src="/chadfilms/libs/bootstrap-5.3.2-dist/js/bootstrap.js"></script> -->
+
+</body>
+<!-- [Body] end -->
+
+</html>

@@ -1,0 +1,8 @@
+<?php View::partial("address/show",null,["address" => $store->getAddress()]); ?>
+
+<h2>Staff en <?= $store->nombre ?></h2>
+
+<?php View::partial("staff/listar",null,["staff" => $store->getStaff()]); ?>
+
+<br>
+<a href="/chadfilms/store" class="btn btn-primary">Todas las tiendas</a>

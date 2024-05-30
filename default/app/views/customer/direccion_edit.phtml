@@ -1,0 +1,6 @@
+<?php View::content();
+View::partial('address/form',null,['address' => $address]);
+?>
+
+<br>
+<a href="/chadfilms/customer/edit/<?= $customer->id ?>" class="btn btn-danger">Cancelar</a>

@@ -1,0 +1,24 @@
+<table class="table table-sm table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($languages as $l): ?>
+        <tr>
+            <td>
+                <a href="/chadfilms/language/show/<?= $l->id ?>">Ver</a>
+            </td>
+            <td><?= $l->name ?></td>
+            <td>
+                <a href="/chadfilms/language/edit/<?= $l->id ?>">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<a href="/chadfilms/language/create" class="btn btn-primary">Nuevo lenguaje</a>

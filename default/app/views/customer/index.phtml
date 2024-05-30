@@ -1,0 +1,32 @@
+<table class="table table-sm table-hover table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nombre(s)</th>
+        <th>Apellido(s)</th>
+        <th>Tienda</th>
+        <th>Email</th>
+        <th>Activo</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tobdy>
+        <?php foreach ($customers as $c): ?>
+            <tr>
+                <td>
+                    <a href="/chadfilms/customer/show/<?= $c->id ?>">Ver</a>
+                </td>
+                <td><?= $c->first_name ?></td>
+                <td><?= $c->last_name ?></td>
+                <td><?= $c->getStore()->nombre ?></td>
+                <td><?= $c->email ?></td>
+                <td><?= ($c->active == 1) ? "Sí" : "No" ?></td>
+                <td>
+                    <a href="/chadfilms/customer/edit/<?= $c->id ?>">Editar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tobdy>
+</table>
+
+<a href="/chadfilms/customer/create" class="btn btn-primary">Nuevo cliente</a>

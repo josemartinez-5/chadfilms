@@ -1,0 +1,13 @@
+<ul>
+    <li>Nombre: <?= $city->city ?></li>
+    <li>País: <?= $city->getCountry()->country ?></li>
+</ul>
+
+<?php if($city->image && $city->image !== 'default.png'){ ?>
+    <div class="mt-4">
+        <?= html::img("upload/{$city->image}", $alt = 'Imagen', $attrs = ["width" => "300px"]) ?>
+    </div>
+<?php } ?>
+
+<br>
+<a href="/chadfilms/city" class="btn btn-primary">Todas las ciudades</a>

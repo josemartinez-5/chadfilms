@@ -1,0 +1,12 @@
+<?= Form::open(); ?>
+
+<div class="row">
+    <div class="col">
+        <?= Form::label('Nombre','country_country',["class"=>"form-label"]) ?>
+        <?= Form::text('country.country', $attrs=["class"=>"form-control"]) ?>
+    </div>
+</div>
+
+<?= Form::submit('Guardar', $attrs=["class"=>"mt-5 btn btn-primary"]) ?>
+
+<?= Form::close() ?>

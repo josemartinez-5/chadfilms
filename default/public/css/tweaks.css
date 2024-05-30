@@ -1,0 +1,290 @@
+.epic{
+    animation: wee 1s ease-in-out;
+    transition: transform .3s;
+}
+
+.epic:hover {
+    transform: scale(1.2);
+}
+
+.epic-name {
+    color: white;
+}
+
+@keyframes wee {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.card-body h4, .card-body h3{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.linea-azul::before {
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 20%;
+    top: 120%;
+    left: 0;
+    background: #062ade;
+}
+
+.card-film {
+    width: 19%;
+    float: left;
+    margin: 0 0.5%;
+    border-radius: 4px;
+    transition: transform .3s;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-film:hover {
+    transform: translateY(-2%);
+}
+
+.dot {
+    width: 3px;
+    height: 3px;
+    vertical-align: 2px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #062ade;
+    content: "";
+    margin: 0 5px;
+}
+
+.card-img-top {
+    border-radius: 4px;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.a-sin-color {
+    color: var(--pc-heading-color);
+}
+
+.poster, .film-text {
+    float: left;
+}
+
+.little-info {
+    font-size: 0.9em;
+}
+
+.first-column {
+    float: left;
+    min-width: 120px
+}
+
+.second-column {
+    float: left;
+}
+
+.video-iframe {
+    aspect-ratio: 16/9;
+}
+
+.left-column {
+    flex-grow: 1;
+    width: 68%;
+}
+
+.right-column {
+    flex-basis: 32%;
+    margin-left: 1rem;
+}
+
+.cart-bucket {
+    border: 1px solid #e5e5e5;
+    margin-bottom: .5rem;
+    position: relative;
+    padding: 1rem;
+}
+
+.cart-bucket-content {
+    display: grid;
+    column-gap: 16px;
+    grid-template-columns: repeat(16, calc(6.25% - 16px + 1px));
+    row-gap: 16px;
+}
+
+.grid-item-image {
+    grid-area: 1/1/span 1/span 3;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.grid-item-image img {
+    max-height: 170px;
+    max-width: 100%;
+}
+
+.grid-item-title {
+    grid-area: 1/4/span 1/span 6;
+    padding-top: 1rem;
+}
+
+.grid-item-title a h3 {
+    font-size: 1.4rem;
+}
+
+.grid-item-title a h3:hover {
+    text-decoration: underline;
+}
+
+.grid-item-price {
+    grid-area: 1/10/span 1/span 7;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: end;
+    color: #191919;
+}
+
+.cart-bucket-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sticky-wrapper {
+    position: sticky;
+    top: 76px;
+    background-color: #f7f7f7;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.cart-summary-line-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.cart-summary-line-item span {
+    color: #191919;
+}
+
+.line-x {
+    margin: 1rem 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.total-row {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.btn-pay {
+    width: 100%;
+    border-radius: 24px;
+    font-size: 1rem;
+    min-height: 48px;
+    background-color: #3665f3;
+    font-weight: 700;
+}
+
+.empty-cart {
+    flex-basis: 100%;
+    padding-bottom: 9.5rem;
+    padding-top: 6rem;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #191919;
+}
+
+.purchase-list {
+    border-radius: 6px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0,0,0,.1);
+    overflow: hidden;
+}
+
+.purchase-list-header {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 16px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.purchase-list-bottom {
+    display: flex;
+    justify-content: right;
+    overflow: hidden;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1;
+    color: #3665f3;
+}
+
+.purchase-list-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 24px;
+    width: auto;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.purchase-list-item-left {
+    width: 50%;
+    padding-right: 32px;
+    display: inline-flex;
+    flex: 1 1 50%;
+    order: 1;
+}
+
+.purchase-list-item-image {
+    display: inline-block;
+    text-align: center;
+    min-width: 100px;
+}
+
+.purchase-list-item-image img {
+    max-height: 170px;
+    max-width: 100%;
+}
+
+.purchase-list-item-data {
+    display: grid;
+    margin-left: 24px;
+    color: rgba(0,0,0,.9);
+}
+
+.purchase-list-item-data h4{
+    margin-bottom: 0px;
+}
+
+.purchase-list-item-price {
+    font-weight: 600;
+}
+
+.purchase-list-item-right {
+    align-self: flex-start;
+    display: flex;
+    flex-flow: wrap-reverse;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-end;
+    order: 2;
+    width: 25%;
+}
+
+.purchase-list-item-right a {
+    max-width: 130px;
+}

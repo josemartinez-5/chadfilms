@@ -1,0 +1,6 @@
+<h2>Ciudades en <?= $country->country ?></h2>
+
+<?php View::partial("city/listar",null,["cities" => $country->getCities()]); ?>
+
+<br>
+<a href="/chadfilms/country" class="btn btn-primary">Todos los países</a>

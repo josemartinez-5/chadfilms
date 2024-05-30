@@ -1,0 +1,30 @@
+<table class="table table-sm table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>CP</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($stores as $s): ?>
+        <tr>
+            <td>
+                <a href="/chadfilms/store/show/<?= $s->id ?>">Ver</a>
+            </td>
+            <td><?= $s->nombre ?></td>
+            <td><?=  $s->getAddress()->address .
+                ($s->getAddress()->address2 == "" ?: ", " . $s->getAddress()->address2) . ", C.P. " .
+                $s->getAddress()->postal_code ?></td>
+            <td><?= $s->cp ?></td>
+            <td>
+                <a href="/chadfilms/store/edit/<?= $s->id ?>">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<a href="/chadfilms/store/create" class="btn btn-primary">Nueva tienda</a>

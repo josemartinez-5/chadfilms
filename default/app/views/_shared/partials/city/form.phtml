@@ -1,0 +1,33 @@
+<?= Form::openMultipart(); ?>
+
+<div class="row">
+    <div class="col-5">
+        <?= Form::label('Nombre','city_city',["class"=>"form-label"]) ?>
+        <?= Form::text('city.city',$attrs=["class"=>"form-control"]) ?>
+    </div>
+    <div class="col-5">
+        <?= Form::label('País','city_country_id',["class"=>"form-label"]) ?>
+        <?= Form::dbSelect($itemId = 'city.country_id',         //Campo a llenar en city
+            $show = 'country',                  //Mostrar como texto de las opciones el campo country de country
+            $data = ['Country','find'],         //Nuevo objeto de la clase Country, método find, para los datos
+            $blank = 'Seleccione un país',      //Texto a mostrar cuando value está vacio
+            $attrs = ["class"=>"form-control js-example-basic-single"],
+            $value = $city->country_id)         //Valor actual correspondiente a $city
+        ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <?= Form::label('Imagen de la ciudad','pic',["class"=>"form-label"]) ?>
+        <?= Form::file('pic') ?>
+    </div>
+</div>
+<?php if($city->image && $city->image !== 'default.png'){ ?>
+<div class="mt-4">
+    <?= html::img("upload/{$city->image}", $alt = 'imagen', $attrs = ["width" => "300px"]) ?>
+</div>
+<?php } ?>
+
+<?= Form::submit('Guardar', $attrs=["class"=>"mt-5 btn btn-primary"]) ?>
+
+<?= Form::close() ?>

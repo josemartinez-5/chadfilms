@@ -1,0 +1,26 @@
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Núm. de ciudades</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($countries as $c): ?>
+            <tr>
+                <td>
+                    <a href="/chadfilms/country/show/<?= $c->id ?>">Ver</a>
+                </td>
+                <td><?= $c->country ?></td>
+                <td><?= $c->no_ciudades ?></td>
+                <td>
+                    <a href="/chadfilms/country/edit/<?= $c->id ?>">Editar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<a href="/chadfilms/country/create" class="btn btn-primary">Nuevo país</a>

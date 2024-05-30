@@ -1,0 +1,13 @@
+<div class="purchase-list">
+    <div class="purchase-list-header">
+        <span>ID #<?= $purchase->id ?></span>
+        <span><?= date('j M, Y',strtotime($purchase->rental_date)) ?></span>
+    </div>
+    <?php foreach ($purchase->getItems() as $film) {
+        View::partial('customer/purchased_film',null,['film'=>$film]);
+    }
+    ?>
+    <div class="purchase-list-bottom">
+        <span>Total: MXN $<?= $purchase->total ?></span>
+    </div>
+</div>

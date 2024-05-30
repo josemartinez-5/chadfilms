@@ -1,0 +1,32 @@
+<table class="table table-sm table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Store</th>
+        <th>Email</th>
+        <th>Active</th>
+        <th>Username</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($staff as $s): ?>
+        <tr>
+            <td>
+                <a href="/chadfilms/staff/show/<?= $s->id ?>">Ver</a>
+            </td>
+            <td><?= $s->first_name ?></td>
+            <td><?= $s->last_name ?></td>
+            <td><?= $s->getStore()->nombre ?></td>
+            <td><?= $s->email ?></td>
+            <td><?= ($s->active == 1) ? "Yes" : "No" ?></td>
+            <td><?= $s->username ?></td>
+            <td>
+                <a href="/chadfilms/staff/edit/<?= $s->id ?>">Editar</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
