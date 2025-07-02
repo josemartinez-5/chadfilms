@@ -15,5 +15,4 @@ Chadfilms is a film store website where the users can add films to a shopping ca
 There's also some examples of the implementation of CRUD, using some of the website database tables, under the section `Prácticas (Sección de administrador)`, on the sidebar.
 
 ## Demo
-This project was deployed on a free web hosting, [check it out](https://chadfilms.000webhostapp.com/chadfilms/). (Since the hosting is free, it has a very slow connection speed 😞).
-Use email `come@down.com` and password `come` to log in.
+Unfortunately, at the moment, I cannot afford to deploy this project on a public server.
